@@ -1,79 +1,93 @@
-# Getting Started with Create React App
+# Free React / Next.js landing page template
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Open React / Next.js template preview](https://github.com/user-attachments/assets/522a5e46-2a0e-48ca-80eb-87c7fa58f3ea)
 
-## Available Scripts
+**Open** is a **free React / Next.js landing page template built with Tailwind CSS** for developers/makers who want to create a quick and professional landing page for their open source projects, SaaS products, online services, and more.
 
-In the project directory, you can run:
+**UPDATE 2025-02-04** Added Tailwind v4 support!
 
-### `npm start`
+Use it for whatever you want, and be sure to reach us out on [Twitter](https://twitter.com/Cruip_com) if you build anything cool/useful with it.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Created and maintained with ❤️ by [Cruip.com](https://cruip.com).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+_Version 1.0.0 built with the Cruip CSS is available [here](https://github.com/cruip/open-react-template/releases/tag/1.0.0)._
+_Version 2.0.3 built with Tailwind CSS and React + Vite is available [here](https://github.com/cruip/open-react-template/releases/tag/2.0.3)._
+_Version 3.3.0 (before redesign) built with Tailwind CSS and Next.js is available [here](https://github.com/cruip/open-react-template/releases/tag/3.3.0)._
 
-### `npm test`
+## Live demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Check the live demo here 👉️ [https://open.cruip.com/](https://open.cruip.com/)
 
-### `npm run build`
+## Open PRO
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[![Open Pro](https://github.com/user-attachments/assets/2062c728-95f1-4d59-aa2d-d63556f625d5)](https://cruip.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Design files
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If you need the design files, you can download them from Figma's Community 👉 https://bit.ly/401KSUS
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+First, run the development server:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm run dev
+# or
+pnpm dev (recommended)
+# or
+yarn dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-### Code Splitting
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-### Analyzing the Bundle Size
+### Learn More
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To learn more about Next.js, take a look at the following resources:
 
-### Making a Progressive Web App
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-### Advanced Configuration
+### Deploy on Vercel
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### Deployment
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Support notes
 
-### `npm run build` fails to minify
+This template has been developed with the App Router (`app`) and React Server Components. If you’re unfamiliar with these beta features, you can find more information about them on the Next.js beta documentation page. So, please note that any request dealing with React (e.g. extra features, customisations, et cetera) is to be considered out of the support scope.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For more information about what support covers, please see our (FAQs)[https://cruip.com/faq/].
 
+## Credits
 
-"scripts": {
-  "start": "craco start",
-  "build": "craco build",
-  "test": "craco test",
-  "eject": "react-scripts eject"
-}
+- [Nucleo](https://nucleoapp.com/)
 
+## Terms and License
+
+- Released under the [GPL](https://www.gnu.org/licenses/gpl-3.0.html).
+- Copyright 2024 [Cruip](https://cruip.com/).
+- Use it for personal and commercial projects, but please don’t republish, redistribute, or resell the template.
+- Attribution is not required, although it is really appreciated.
+
+## About Us
+
+We're an Italian developer/designer duo creating high-quality design/code resources for developers, makers, and startups.
+
+## Stay in the loop
+
+If you would like to know when we release new resources, you can follow [@pacovitiello](https://x.com/pacovitiello) and [@DavidePacilio](https://x.com/DavidePacilio) on X, or you can subscribe to our [newsletter](https://cruip.com/newsletter/).
