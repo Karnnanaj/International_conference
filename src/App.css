@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Julius+Sans+One&family=Teko:wght@300..700&display=swap');
+
+/* @import url("//fonts.googleapis.com/css?family=Vibur"); */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Teko:wght@300..700&display=swap');
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+ @font-face {
+  font-family: 'Oversteer'; /* Name for the font */
+  src: url('fonts/Unsteady_Oversteer.otf') format('truetype'); /*Path to the font file */
+  /* font-weight: normal; /* Optional: Specify font weight 
+  font-style: normal; Optional: Specify font style */
+ }
+
+ .text-justify{
+  text:justify
+ }
+ 
+ 
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  /* line-height: 2.0; */
+
+}
+
+
+.oversteer{
+  font-family:Oversteer;
+  font-size:xx-large;
+}
+
+.darkoversteer{
+  font-family: 'Oversteer';
+  color: black;
+  text-align: center;
+  font-size:xxx-large;
+}
+
+.dark{
+  color: black;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
