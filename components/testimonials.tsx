@@ -142,7 +142,7 @@ export function Testimonial({
     // Set a timeout to deactivate if touch is held (scroll intent)
     const timeout = setTimeout(() => {
       setIsActive(false);
-    }, 2000); // Adjust this delay as needed
+    }, 20000); // Adjust this delay as needed
     setTouchTimeout(timeout);
   };
 
