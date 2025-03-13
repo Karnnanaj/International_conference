@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, TouchEvent } from "react";
+import { useState, TouchEvent, useEffect } from "react";
 import useMasonry from "@/utils/useMasonry";
 import Image, { StaticImageData } from "next/image";
 import { useRouter } from "next/navigation";
@@ -142,7 +142,7 @@ export function Testimonial({
     // Set a timeout to deactivate if touch is held (scroll intent)
     const timeout = setTimeout(() => {
       setIsActive(false);
-    }, 20000); // Adjust this delay as needed
+    }, 10000); // Adjust this delay as needed
     setTouchTimeout(timeout);
   };
 
@@ -166,6 +166,22 @@ export function Testimonial({
     if (touchTimeout) clearTimeout(touchTimeout);
     setIsActive(false);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isActive) {
+        setIsActive(false); // Hide content when scrolling anywhere
+        if (touchTimeout) clearTimeout(touchTimeout); // Clear any active timeout
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isActive, touchTimeout]);
 
   return (
     <article
