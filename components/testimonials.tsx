@@ -150,7 +150,7 @@ export function Testimonial({
   const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
     e.stopPropagation();
     if (touchTimeout) clearTimeout(touchTimeout);
-    setIsActive(true); // Immediately hide content on scroll
+    setIsActive(false); // Immediately hide content on scroll
   };
 
   // Handle touch end
