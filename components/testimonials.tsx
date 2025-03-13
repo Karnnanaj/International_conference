@@ -72,7 +72,7 @@ export default function Testimonials() {
       <div className="border-t py-12 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] md:py-20">
         <div className="mx-auto max-w-3xl pb-12 text-center">
           <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-800),var(--color-indigo-600),var(--color-gray-800),var(--color-indigo-400),var(--color-gray-800))] bg-[length:200%_auto] bg-clip-text pb-5 font-nacelle text-4xl font-semibold text-transparent md:text-5xl">
-                Don't take our word for it
+            Don't take our word for it
           </h2>
           <p className="text-lg text-gray-800">
             We provide tech-first solutions that empower decision-makers to
@@ -85,7 +85,7 @@ export default function Testimonials() {
           {/* ... (keeping the button section as is) ... */}
 
           <div
-            className="mx-auto grid max-w-sm items-start gap-6 sm:max-w-none sm:grid-cols-2 lg:grid-cols-3"
+            className="mx-auto grid max-w-sm items-start gap-6 sm:max-w-none sm:grid-cols-2 justify-items-center lg:grid-cols-3"
             ref={masonryContainer}
           >
             {testimonials.map((testimonial, index) => (
@@ -142,7 +142,7 @@ export function Testimonial({
     // Set a timeout to deactivate if touch is held (scroll intent)
     const timeout = setTimeout(() => {
       setIsActive(false);
-    }, 500); // Adjust this delay as needed
+    }, 2000); // Adjust this delay as needed
     setTouchTimeout(timeout);
   };
 
@@ -169,7 +169,7 @@ export function Testimonial({
 
   return (
     <article
-      className={`relative rounded-2xl bg-linear-to-br from-gray-900/50 via-gray-800/25 to-gray-900/50 backdrop-blur-xs transition-opacity before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] ${!testimonial.categories.includes(category) ? "opacity-30" : ""} w-[300px] h-[200px] sm:w-[250px] sm:h-[180px]`}
+      className={`relative rounded-2xl bg-linear-to-br from-gray-900/50 via-gray-800/25 to-gray-900/50 backdrop-blur-xs transition-opacity before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] ${!testimonial.categories.includes(category) ? "opacity-30" : ""} w-[80vw] h-[200px] sm:w-[300px] sm:h-[180px]`}
     >
       <div
         className="relative w-full h-full"
@@ -188,11 +188,11 @@ export function Testimonial({
 
         {/* Caption - visible by default, hidden on hover/touch */}
         <div
-          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+          className={`absolute inset-0 flex items-start justify-left transition-opacity duration-300 ${
             isActive ? "opacity-0" : "group-hover:opacity-0"
           }`}
         >
-          <div className="text-white text-base sm:text-sm font-semibold bg-black/50 px-2 py-1 rounded">
+          <div className="text-white text-base sm:text-sm font-semibold bg-black/50 px-2 py-1 rounded rounded-tl-2xl">
             {testimonial.caption}
           </div>
         </div>
