@@ -89,7 +89,7 @@ export default function Testimonials() {
             ref={masonryContainer}
           >
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="group touch-none">
+              <div key={index} className="group">
                 <Testimonial testimonial={testimonial} category={category}>
                   {testimonial.content}
                 </Testimonial>
@@ -126,42 +126,47 @@ export function Testimonial({
 
   // Handle touch start for mobile hover effect
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+    e.preventDefault(); // Prevent default scrolling
     setTouchStart(e.touches[0].clientY);
     setIsActive(true);
   };
 
-  // Handle touch end to reset and detect double tap
-  const handleTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
-    const now = Date.now();
-    const DOUBLE_TAP_DELAY = 300; // Time in ms to consider it a double tap
-
-    if (now - lastTap < DOUBLE_TAP_DELAY) {
-      router.push("/details"); // Redirect to details page on double tap
-    } else {
-      setIsActive(false);
-    }
-    setLastTap(now);
-  };
-
-  // Handle touch move to prevent scroll interference
+  // Handle touch move to detect scrolling
   const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
     if (touchStart !== null) {
       const touchMove = e.touches[0].clientY;
       const diff = Math.abs(touchMove - touchStart);
       if (diff > 10) {
-        setIsActive(false); // Cancel hover effect if scrolling
+        setIsActive(false); // Deactivate if scrolling
       }
     }
   };
 
+  // Handle touch end for double tap and reset
+  const handleTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
+    e.preventDefault(); // Prevent default behavior
+    const now = Date.now();
+    const DOUBLE_TAP_DELAY = 300;
+
+    if (now - lastTap < DOUBLE_TAP_DELAY) {
+      router.push("/details"); // Redirect on double tap
+    } else {
+      setIsActive(false);
+    }
+    setLastTap(now);
+    setTouchStart(null);
+  };
+
   return (
     <article
-      className={`relative rounded-2xl bg-linear-to-br from-gray-900/50 via-gray-800/25 to-gray-900/50 backdrop-blur-xs transition-opacity before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] ${!testimonial.categories.includes(category) ? "opacity-30" : ""} w-[300px] h-[200px] sm:w-[250px] sm:h-[180px]`} // Adjusted for mobile
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
+      className={`relative rounded-2xl bg-linear-to-br from-gray-900/50 via-gray-800/25 to-gray-900/50 backdrop-blur-xs transition-opacity before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] ${!testimonial.categories.includes(category) ? "opacity-30" : ""} w-[300px] h-[200px] sm:w-[250px] sm:h-[180px]`}
     >
-      <div className="relative w-full h-full">
+      <div
+        className="relative w-full h-full"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <Image
           src={testimonial.img}
           alt={testimonial.name}
@@ -170,16 +175,24 @@ export function Testimonial({
           className="rounded-2xl"
         />
 
-        {/* Overlay content - all hidden until hover/touch */}
+        {/* Caption - visible by default, hidden on hover/touch */}
+        <div
+          className={`absolute inset-0 flex items-center z-0 transition-opacity duration-300 ${
+            isActive || "group-hover:opacity-0"
+          }`}
+        >
+          <div className="text-white text-base sm:text-sm font-semibold bg-black/50 px-2 py-1 text-top rounded">
+            {testimonial.caption}
+          </div>
+        </div>
+
+        {/* Content - hidden by default, visible on hover/touch */}
         <div
           className={`absolute inset-0 bg-black/70 p-4 flex flex-col justify-between opacity-0 transition-opacity duration-300 rounded-2xl ${
             isActive || "group-hover:opacity-100"
           }`}
         >
           <div>
-            <div className="text-white text-base sm:text-sm font-semibold mb-2 bg-black/50 px-2 py-1 rounded">
-              {testimonial.caption}
-            </div>
             <p className="text-indigo-200/90 text-xs sm:text-[0.65rem] before:content-['“'] after:content-['”'] overflow-y-auto">
               {children}
             </p>
