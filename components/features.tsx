@@ -39,10 +39,10 @@ export default function Features() {
                 Advanced Controls
               </span>
             </div>
-            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
+            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-800),var(--color-indigo-600),var(--color-gray-800),var(--color-indigo-400),var(--color-gray-800))] bg-[length:200%_auto] bg-clip-text pb-5 font-nacelle text-4xl font-semibold text-transparent md:text-5xl">
               Built for modern product teams
             </h2>
-            <p className="text-lg text-indigo-200/65">
+            <p className="text-lg text-gray-800">
               Open AI reads and understands your files, and with nothing more
               than a single line of feedback, so you can go further than the
               speed of thought.
@@ -75,7 +75,7 @@ export default function Features() {
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
                 Project Milestones
               </h3>
-              <p className="text-indigo-200/65">
+              <p className="text-gray-800">
                 Track progress across custom flows for your team. Find the right
                 balance for the user, privacy and security.
               </p>
@@ -93,7 +93,7 @@ export default function Features() {
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
                 Team Views
               </h3>
-              <p className="text-indigo-200/65">
+              <p className="text-gray-800">
                 Track progress across custom flows for your team. Find the right
                 balance for the user, privacy and security.
               </p>
@@ -114,7 +114,7 @@ export default function Features() {
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
                 Advanced Search
               </h3>
-              <p className="text-indigo-200/65">
+              <p className="text-gray-800">
                 Track progress across custom flows for your team. Find the right
                 balance for the user, privacy and security.
               </p>
@@ -140,7 +140,7 @@ export default function Features() {
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
                 Strategic Initiatives
               </h3>
-              <p className="text-indigo-200/65">
+              <p className="text-gray-800">
                 Track progress across custom flows for your team. Find the right
                 balance for the user, privacy and security.
               </p>
@@ -161,7 +161,7 @@ export default function Features() {
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
                 Flexible Workflows
               </h3>
-              <p className="text-indigo-200/65">
+              <p className="text-gray-800">
                 Track progress across custom flows for your team. Find the right
                 balance for the user, privacy and security.
               </p>
@@ -182,7 +182,7 @@ export default function Features() {
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
                 Unified Timeline
               </h3>
-              <p className="text-indigo-200/65">
+              <p className="text-gray-800">
                 Track progress across custom flows for your team. Find the right
                 balance for the user, privacy and security.
               </p>

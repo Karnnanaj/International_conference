@@ -17,10 +17,10 @@ export default function Cta() {
         />
       </div>
       <div className="max-w6xl mx-auto px-4 sm:px-6">
-        <div className="bg-linear-to-r from-transparent via-gray-800/50 py-12 md:py-20">
+        <div className="bg-linear-to-r from-transparent via-indigo-300/50 py-12 md:py-20">
           <div className="mx-auto max-w-3xl text-center">
             <h2
-              className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-8 font-nacelle text-3xl font-semibold text-transparent md:text-4xl"
+              className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-800),var(--color-indigo-600),var(--color-gray-800),var(--color-indigo-400),var(--color-gray-800))] bg-[length:200%_auto] bg-clip-text pb-8 font-nacelle text-3xl font-semibold text-transparent md:text-4xl"
               data-aos="fade-up"
             >
               Join the content-first platform
