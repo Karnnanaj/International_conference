@@ -208,7 +208,7 @@ export function Testimonial({
             isActive ? "opacity-0" : "group-hover:opacity-0"
           }`}
         >
-          <div className="text-white text-base sm:text-sm font-semibold bg-black/50 px-2 py-1 rounded rounded-tl-2xl">
+          <div className="text-white text-base sm:text-sm font-semibold bg-black/50 px-2 py-1 rounded rounded-br-2xl rounded-tl-2xl">
             {testimonial.caption}
           </div>
         </div>
