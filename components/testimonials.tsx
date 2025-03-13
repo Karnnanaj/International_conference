@@ -71,10 +71,10 @@ export default function Testimonials() {
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
       <div className="border-t py-12 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] md:py-20">
         <div className="mx-auto max-w-3xl pb-12 text-center">
-          <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-            Don't take our word for it
+          <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-800),var(--color-indigo-600),var(--color-gray-800),var(--color-indigo-400),var(--color-gray-800))] bg-[length:200%_auto] bg-clip-text pb-5 font-nacelle text-4xl font-semibold text-transparent md:text-5xl">
+                Don't take our word for it
           </h2>
-          <p className="text-lg text-indigo-200/65">
+          <p className="text-lg text-gray-800">
             We provide tech-first solutions that empower decision-makers to
             build healthier and happier workspaces from anywhere in the world.
           </p>
@@ -121,40 +121,50 @@ export function Testimonial({
 }) {
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
-  const [touchStart, setTouchStart] = useState<number | null>(null);
   const [lastTap, setLastTap] = useState<number>(0);
+  const [touchTimeout, setTouchTimeout] = useState<NodeJS.Timeout | null>(null);
 
-  // Handle touch start for mobile hover effect
+  // Handle touch start
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
-    e.preventDefault(); // Prevent default scrolling
-    setTouchStart(e.touches[0].clientY);
+    e.stopPropagation(); // Prevent event bubbling
+    if (touchTimeout) clearTimeout(touchTimeout); // Clear any existing timeout
+
     setIsActive(true);
-  };
-
-  // Handle touch move to detect scrolling
-  const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
-    if (touchStart !== null) {
-      const touchMove = e.touches[0].clientY;
-      const diff = Math.abs(touchMove - touchStart);
-      if (diff > 10) {
-        setIsActive(false); // Deactivate if scrolling
-      }
-    }
-  };
-
-  // Handle touch end for double tap and reset
-  const handleTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
-    e.preventDefault(); // Prevent default behavior
     const now = Date.now();
     const DOUBLE_TAP_DELAY = 300;
 
     if (now - lastTap < DOUBLE_TAP_DELAY) {
       router.push("/details"); // Redirect on double tap
-    } else {
       setIsActive(false);
     }
     setLastTap(now);
-    setTouchStart(null);
+
+    // Set a timeout to deactivate if touch is held (scroll intent)
+    const timeout = setTimeout(() => {
+      setIsActive(false);
+    }, 500); // Adjust this delay as needed
+    setTouchTimeout(timeout);
+  };
+
+  // Handle touch move (scroll detection)
+  const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    if (touchTimeout) clearTimeout(touchTimeout);
+    setIsActive(false); // Immediately hide content on scroll
+  };
+
+  // Handle touch end
+  const handleTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    if (touchTimeout) clearTimeout(touchTimeout);
+    // Don't reset isActive immediately to allow double-tap detection
+  };
+
+  // Handle touch cancel (e.g., interrupted touch)
+  const handleTouchCancel = (e: TouchEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    if (touchTimeout) clearTimeout(touchTimeout);
+    setIsActive(false);
   };
 
   return (
@@ -166,6 +176,7 @@ export function Testimonial({
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchCancel}
       >
         <Image
           src={testimonial.img}
@@ -177,11 +188,11 @@ export function Testimonial({
 
         {/* Caption - visible by default, hidden on hover/touch */}
         <div
-          className={`absolute inset-0 flex items-center z-0 transition-opacity duration-300 ${
-            isActive || "group-hover:opacity-0"
+          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+            isActive ? "opacity-0" : "group-hover:opacity-0"
           }`}
         >
-          <div className="text-white text-base sm:text-sm font-semibold bg-black/50 px-2 py-1 text-top rounded">
+          <div className="text-white text-base sm:text-sm font-semibold bg-black/50 px-2 py-1 rounded">
             {testimonial.caption}
           </div>
         </div>
@@ -189,7 +200,7 @@ export function Testimonial({
         {/* Content - hidden by default, visible on hover/touch */}
         <div
           className={`absolute inset-0 bg-black/70 p-4 flex flex-col justify-between opacity-0 transition-opacity duration-300 rounded-2xl ${
-            isActive || "group-hover:opacity-100"
+            isActive ? "opacity-100" : "group-hover:opacity-100"
           }`}
         >
           <div>
